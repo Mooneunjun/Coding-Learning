@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>resect Document</title>
+    <style>
+      body {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        background: #333;
+      }
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        transition: all 0.3s ease-in-out;
+        /* 글 복사 막기 */
+        user-select: none;
+      }
+      .reset {
+        width: 100px;
+        height: 100px;
+        background-color: #222;
+        color: #fff;
+        font-size: 20px;
+        font-weight: bold;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: absolute;
+        border-radius: 50%;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        box-shadow: #111 0px 0px 10px 0px;
+      }
+      .reset:hover {
+        background-color: #111;
+      }
+      .reset:active {
+        background-color: #000;
+        box-shadow: #000 0px 0px 5px 0px;
+      }
+      .hidden {
+        opacity: 0;
+        visibility: hidden;
+      }
+      .popup {
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, 0.5);
+        position: fixed;
+        top: 0;
+        left: 0;
+      }
+      .popup__inner {
+        width: 400px;
+        height: 300px;
+        background-color: #fff;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+        border-radius: 10px;
+        padding: 20px;
+      }
+      .popup__title {
+        font-size: 20px;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+      .popup__content {
+        font-size: 16px;
+        margin-bottom: 10px;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        transform: translate(-50%, -50%);
+      }
+
+      .popup__close {
+        width: 100px;
+        height: 30px;
+        background-color: #222;
+        color: #fff;
+        font-size: 16px;
+        font-weight: bold;
+        border: none;
+        outline: none;
+        cursor: pointer;
+        position: absolute;
+        bottom: 20px;
+        right: 50%;
+        transform: translate(50%, 0%);
+        border-radius: 5px;
+        transition: all 0.1s ease-in-out;
+      }
+
+      .popup__close:hover {
+        background-color: #111;
+      }
+      .popup__close:active {
+        background-color: #000;
+        box-shadow: #333 0px 0px 3px 0px;
+      }
+    </style>
+  </head>
+  <body>
+    <button class="reset">Reset</button>
+
+    <!-- popup창 만들기 -->
+    <div class="popup hidden">
+      <div class="popup__inner">
+        <div class="popup__title">{오늘의 메뉴는?}</div>
+        <div class="popup__content">{메뉴이름 + 가격}</div>
+        <button class="popup__close">확인</button>
+      </div>
+    </div>
+  </body>
+
+  <script>
+    const menuName = ["짜장면", "짬뽕", "탕수육", "볶음밥", "깐풍기"];
+    const menuPrice = [5000, 6000, 12000, 7000, 8000];
+
+    const resetBtn = document.querySelector(".reset");
+    const closeBtn = document.querySelector(".popup__close");
+    const popup = document.querySelector(".popup");
+    const popupTitle = document.querySelector(".popup__title");
+    const popupContent = document.querySelector(".popup__content");
+
+    // 메뉴를 랜덤으로 선택하여 팝업에 표시
+    function showRandomMenu() {
+      const randomIndex = Math.floor(Math.random() * menuName.length);
+      popupTitle.textContent = "오늘의 메뉴는?";
+      popupContent.textContent = `${menuName[randomIndex]} ${menuPrice[randomIndex]}원`;
+      popup.classList.remove("hidden"); // 수정됨: 클래스를 제거
+    }
+
+    // 팝업창 닫기
+    function closePopup() {
+      popup.classList.add("hidden"); // 수정됨: 클래스를 추가
+    }
+
+    // 버튼에 이벤트 연결
+    resetBtn.addEventListener("click", showRandomMenu);
+    closeBtn.addEventListener("click", closePopup);
+
+    // 'Enter' 키로 팝업창 제어
+    document.addEventListener("keydown", function (event) {
+      if (event.key === "Enter") {
+        event.preventDefault();
+        if (popup.classList.contains("hidden")) {
+          showRandomMenu();
+        } else {
+          closePopup();
+        }
+      }
+    });
+  </script>
+</html>
