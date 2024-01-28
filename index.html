@@ -2,8 +2,17 @@
 <html lang="ko">
   <head>
     <meta charset="UTF-8" />
+    <!-- 테마 컬러 투명설정 -->
+    <meta name="theme-color" content="#333" />
+    <!-- 애플 safari 윕뷰설정 -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <!-- 애플 홈화면 아이콘 설정해줘 -->
+    <link rel="apple-touch-icon" href="food.ico" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>resect Document</title>
+    <link rel="shortcut icon" href="food.ico" type="image/x-icon" />
+    <link rel="icon" href="food.ico" type="image/x-icon" />
+
+    <title>오늘의 메뉴는?</title>
     <style>
       body {
         margin: 0;
@@ -15,9 +24,10 @@
         margin: 0;
         padding: 0;
         box-sizing: border-box;
-        transition: all 0.3s ease-in-out;
         /* 글 복사 막기 */
         user-select: none;
+        /* 애플 글 복사 막기 */
+        -webkit-user-select: none;
       }
       .reset {
         width: 100px;
@@ -35,6 +45,7 @@
         left: 50%;
         transform: translate(-50%, -50%);
         box-shadow: #111 0px 0px 10px 0px;
+        transition: all 0.3s ease-in-out;
       }
       .reset:hover {
         background-color: #111;
@@ -43,18 +54,23 @@
         background-color: #000;
         box-shadow: #000 0px 0px 5px 0px;
       }
-      .hidden {
-        opacity: 0;
-        visibility: hidden;
-      }
+
       .popup {
+        /* transition: all 0.3s ease-in-out, background-color 0s; */
         width: 100%;
         height: 100%;
-        background-color: rgba(0, 0, 0, 0.5);
+        background-color: #222;
         position: fixed;
         top: 0;
         left: 0;
       }
+
+      .hidden {
+        opacity: 0;
+        visibility: hidden;
+        transition: all 0s ease-in-out, background-color 0s;
+      }
+
       .popup__inner {
         width: 400px;
         height: 300px;
@@ -65,14 +81,25 @@
         transform: translate(-50%, -50%);
         border-radius: 10px;
         padding: 20px;
+        margin: 0 auto;
       }
+
+      /* 핸드폰사이즈 370px 이하 */
+      @media screen and (max-width: 390px) {
+        .popup__inner {
+          width: 370px;
+          height: 250px;
+        }
+      }
+
       .popup__title {
         font-size: 20px;
         font-weight: bold;
         margin-bottom: 10px;
       }
       .popup__content {
-        font-size: 16px;
+        font-size: 24px;
+        font-weight: bold;
         margin-bottom: 10px;
         position: absolute;
         top: 50%;
@@ -121,8 +148,34 @@
   </body>
 
   <script>
-    const menuName = ["짜장면", "짬뽕", "탕수육", "볶음밥", "깐풍기"];
-    const menuPrice = [5000, 6000, 12000, 7000, 8000];
+    const menuName = [
+      "중국집",
+      "마라탕",
+      "돈까스",
+      "순대국",
+      "햄버거",
+      "찌개류",
+      "카레",
+      "샐러디",
+      "마라샹궈",
+      "뼈해장국",
+      "먹지마셈",
+      "한우",
+    ];
+    const menuPrice = [
+      "10,000",
+      "15,000",
+      "10,000",
+      "9,000",
+      "10,000",
+      "10,000",
+      "9,000",
+      "12,000",
+      "15,000",
+      "14,000",
+      "0",
+      "9,999,999",
+    ];
 
     const resetBtn = document.querySelector(".reset");
     const closeBtn = document.querySelector(".popup__close");
@@ -149,9 +202,21 @@
       popup.classList.add("hidden"); // 수정됨: 클래스를 추가
     }
 
+    // 테마컬러 #222 설정
+    function setThemeColor(cl) {
+      const metaThemeColor = document.querySelector("meta[name=theme-color]");
+      metaThemeColor.setAttribute("content", cl);
+    }
+
     // 버튼에 이벤트 연결
     resetBtn.addEventListener("click", showRandomMenu);
+    resetBtn.addEventListener("click", function () {
+      setThemeColor("#222");
+    });
     closeBtn.addEventListener("click", closePopup);
+    closeBtn.addEventListener("click", function () {
+      setThemeColor("#333");
+    });
 
     // 'Enter' 키로 팝업창 제어
     document.addEventListener("keydown", function (event) {
@@ -159,8 +224,10 @@
         event.preventDefault();
         if (popup.classList.contains("hidden")) {
           showRandomMenu();
+          setThemeColor("#222");
         } else {
           closePopup();
+          setThemeColor("#333");
         }
       }
     });
@@ -185,7 +252,6 @@
 
     document.addEventListener("mouseup", function () {
       isDragging = false;
-      popup.style.transition = "opacity 0.4s ease, transform 0.4s ease";
     });
   </script>
 </html>
