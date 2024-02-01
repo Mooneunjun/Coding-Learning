@@ -1,8 +1,3 @@
-let str = "string";
-let n = 5;
-let str2 = "";
-for (let i = 0; i < n; i++) {
-  str2 += str;
-}
+//  hello world 출력
 
-console.log(str2);
+console.log("hello world");
