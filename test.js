@@ -28,3 +28,6 @@ for (const key in newObject2) {
 newObject2;
 newObject2.name = "park";
 newObject2;
+
+delete newObject2.name;
+newObject2;
