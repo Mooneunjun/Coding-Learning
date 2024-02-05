@@ -31,3 +31,6 @@ newObject2;
 
 delete newObject2.name;
 newObject2;
+
+newObject2.name = "lee";
+newObject2;
