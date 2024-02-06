@@ -34,3 +34,6 @@ newObject2;
 
 newObject2.name = "lee";
 newObject2;
+
+newObject2.age = 20;
+newObject2;
