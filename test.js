@@ -44,3 +44,10 @@ Object.defineProperty(newObject2, "age", {
   enumerable: true,
   configurable: true,
 });
+
+Object.defineProperty(newObject2, "age", {
+  value: 21,
+  writable: true,
+  enumerable: true,
+  configurable: true,
+});
