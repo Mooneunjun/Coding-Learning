@@ -51,3 +51,5 @@ Object.defineProperty(newObject2, "age", {
   enumerable: true,
   configurable: true,
 });
+
+newObject2;
