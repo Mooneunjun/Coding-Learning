@@ -1,55 +1,38 @@
-// 싱글 리터럴  객체
-const object = {
-  property: "value",
-  method: function () {},
-};
+//성인 20세 나이 측장
+// 20세 이상이면 성인으로 판단
+// 20세 미만이면 미성년자로 판단
 
-function NewObject(name) {
-  this.name = name;
+function isAdult(age) {
+  if (age >= 20) {
+    return "성인입니다.";
+  } else {
+    return "미성년자입니다.";
+  }
 }
 
-const newObject = new NewObject("John");
+console.log(isAdult(20)); // true
+console.log(isAdult(19)); // false
 
-const newObject2 = Object.create(Object.prototype, {
-  name: {
-    value: "Jang",
-    writable: true, //덮어쓸 수 있는지 여부
-    enumerable: true, // 열거 가능한지 여부
-    configurable: true, //  삭제 가능한지 여부
-  },
-});
+//성인이면 술을 마실 수 있습니다.
+//미성년자면 술을 마실 수 없습니다.
 
-newObject2.name = "kim";
-
-for (const key in newObject2) {
-  console.log(key);
+function canDrink(age) {
+  if (age >= 20) {
+    return "술을 마실 수 있습니다.";
+  } else {
+    return "술을 마실 수 없습니다.";
+  }
 }
 
-newObject2;
-newObject2.name = "park";
-newObject2;
+console.log(canDrink(20)); // true
+console.log(canDrink(19)); // false
 
-delete newObject2.name;
-newObject2;
+//성인이면 운전할 수 있습니다.
 
-newObject2.name = "lee";
-newObject2;
-
-newObject2.age = 20;
-newObject2;
-
-Object.defineProperty(newObject2, "age", {
-  value: 20,
-  writable: true,
-  enumerable: true,
-  configurable: true,
-});
-
-Object.defineProperty(newObject2, "age", {
-  value: 21,
-  writable: true,
-  enumerable: true,
-  configurable: true,
-});
-
-newObject2;
+function canDrive(age) {
+  if (age >= 20) {
+    return "운전할 수 있습니다.";
+  } else {
+    return "운전할 수 없습니다.";
+  }
+}
