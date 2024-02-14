@@ -36,3 +36,5 @@ function canDrive(age) {
     return "운전할 수 없습니다.";
   }
 }
+
+console.log(canDrive(20)); // true
