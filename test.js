@@ -38,3 +38,5 @@ function canDrive(age) {
 }
 
 console.log(canDrive(20)); // true
+
+console.log(canDrive(19)); // false
