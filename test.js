@@ -40,3 +40,12 @@ function canDrive(age) {
 console.log(canDrive(20)); // true
 
 console.log(canDrive(19)); // false
+
+//성인이면 투표할 수 있습니다.;
+function canVote(age) {
+  if (age >= 20) {
+    return "투표할 수 있습니다.";
+  } else {
+    return "투표할 수 없습니다.";
+  }
+}
