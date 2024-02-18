@@ -49,3 +49,6 @@ function canVote(age) {
     return "투표할 수 없습니다.";
   }
 }
+
+console.log(canVote(20)); // true
+console.log(canVote(19)); // false
