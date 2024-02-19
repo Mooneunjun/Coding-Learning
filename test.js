@@ -52,3 +52,12 @@ function canVote(age) {
 
 console.log(canVote(20)); // true
 console.log(canVote(19)); // false
+
+//성인이면 담배를 피울 수 있습니다.
+function canSmoke(age) {
+  if (age >= 20) {
+    return "담배를 피울 수 있습니다.";
+  } else {
+    return "담배를 피울 수 없습니다.";
+  }
+}
