@@ -1,63 +1,31 @@
-//성인 20세 나이 측장
-// 20세 이상이면 성인으로 판단
-// 20세 미만이면 미성년자로 판단
+const obj = {
+  prop1: "value1",
+  prop2: "value2",
+  prop3: "value3",
+};
 
-function isAdult(age) {
-  if (age >= 20) {
-    return "성인입니다.";
-  } else {
-    return "미성년자입니다.";
+const prop = "prop";
+
+obj.prop1;
+obj[prop + 1];
+
+console.log(obj[prop + 3]);
+
+for (const key in obj) {
+  if (obj.hasOwnProperty(key)) {
+    console.log(obj[key]);
   }
 }
 
-console.log(isAdult(20)); // true
-console.log(isAdult(19)); // false
+const person = {
+  firstName: "John",
+  location: "New York",
+};
 
-//성인이면 술을 마실 수 있습니다.
-//미성년자면 술을 마실 수 없습니다.
+person.lastName = "Doe";
 
-function canDrink(age) {
-  if (age >= 20) {
-    return "술을 마실 수 있습니다.";
-  } else {
-    return "술을 마실 수 없습니다.";
-  }
-}
+const fuck = "age";
 
-console.log(canDrink(20)); // true
-console.log(canDrink(19)); // false
+person[fuck] = 25;
 
-//성인이면 운전할 수 있습니다.
-
-function canDrive(age) {
-  if (age >= 20) {
-    return "운전할 수 있습니다.";
-  } else {
-    return "운전할 수 없습니다.";
-  }
-}
-
-console.log(canDrive(20)); // true
-
-console.log(canDrive(19)); // false
-
-//성인이면 투표할 수 있습니다.;
-function canVote(age) {
-  if (age >= 20) {
-    return "투표할 수 있습니다.";
-  } else {
-    return "투표할 수 없습니다.";
-  }
-}
-
-console.log(canVote(20)); // true
-console.log(canVote(19)); // false
-
-//성인이면 담배를 피울 수 있습니다.
-function canSmoke(age) {
-  if (age >= 20) {
-    return "담배를 피울 수 있습니다.";
-  } else {
-    return "담배를 피울 수 없습니다.";
-  }
-}
+person;
