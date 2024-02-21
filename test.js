@@ -1,31 +1,40 @@
-const obj = {
-  prop1: "value1",
-  prop2: "value2",
-  prop3: "value3",
+const person = {
+  _firstName: "Moon",
+  _lastMame: "Eun-jun",
+
+  get firstName() {
+    return this._firstName.toUpperCase();
+  },
+
+  set firstName(newFirstName) {
+    if (typeof newFirstName != "string") {
+      this._firstName = "알 수 없는 이름";
+
+      return;
+    }
+    this._firstName = newFirstName;
+  },
 };
 
-const prop = "prop";
+// person.firstName = 1234;
+console.log(person.firstName); // MOON
 
-obj.prop1;
-obj[prop + 1];
-
-console.log(obj[prop + 3]);
-
-for (const key in obj) {
-  if (obj.hasOwnProperty(key)) {
-    console.log(obj[key]);
-  }
-}
+// Path: test.js
 
 const person = {
-  firstName: "John",
-  location: "New York",
+  _firstName: "Moon",
+  _lastMame: "Eun-jun",
+
+  get firstName() {
+    return this._firstName.toUpperCase();
+  },
+
+  set firstName(newFirstName) {
+    if (typeof newFirstName != "string") {
+      this._firstName = "알 수 없는 이름";
+
+      return;
+    }
+    this._firstName = newFirstName;
+  },
 };
-
-person.lastName = "Doe";
-
-const fuck = "age";
-
-person[fuck] = 25;
-
-person;
