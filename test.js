@@ -38,3 +38,6 @@ const person = {
     this._firstName = newFirstName;
   },
 };
+
+person.firstName = 1234;
+console.log(person.firstName); // 알 수 없는 이름
