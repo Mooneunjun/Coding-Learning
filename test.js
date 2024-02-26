@@ -1,10 +1,15 @@
-const person = {
-  firstNam: "jang",
-  LastName: "hyeon-seok",
+function person(name, age, location) {
+  this.name = name;
+  this.age = age;
+  this.location = location;
+}
 
-  get firstName() {
-    return this.firstNam;
-  },
-};
+const me = new person("jang", 22, "korea");
 
-console.log(person.firstName); // jang
+me;
+
+const me2 = new person("moon", 27, "korea");
+me2;
+
+console.log(me.name);
+console.log(me["name"]);
