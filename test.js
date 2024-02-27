@@ -13,3 +13,5 @@ me2;
 
 console.log(me.name);
 console.log(me["name"]);
+
+console.log(me2.name);
