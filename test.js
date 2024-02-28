@@ -15,3 +15,8 @@ console.log(me.name);
 console.log(me["name"]);
 
 console.log(me2.name);
+
+const age = "age";
+console.log(me2[age]);
+
+console.log(me2.location);
