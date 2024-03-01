@@ -99,3 +99,9 @@ newArr = arr;
 arr = ["react", ...arr];
 console.log(arr); // ["js", "html", "css"]
 console.log(newArr); // ["js", "html", "css", "react"]
+
+// concat
+arr = ["js", "html", "css"];
+newArr = arr.concat("react");
+console.log(arr); // ["js", "html", "css"]
+console.log(newArr); // ["js", "html", "css", "react"]
