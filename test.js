@@ -105,3 +105,9 @@ arr = ["js", "html", "css"];
 newArr = arr.concat("react");
 console.log(arr); // ["js", "html", "css"]
 console.log(newArr); // ["js", "html", "css", "react"]
+
+// slice
+arr = ["js", "html", "css"];
+newArr = arr.slice(0, 2);
+console.log(arr); // ["js", "html", "css"]
+console.log(newArr); // ["js", "html"]
