@@ -1,5 +1,4 @@
-const members = ["은준", "나희", "정효"];
-
-const result = members.find((member) => member === "나희");
-
-console.log(result);
+(function () {
+  var localVariable = "비공개";
+  console.log("IIFE가 실행됐습니다: " + localVariable);
+})();
