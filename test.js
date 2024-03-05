@@ -1,4 +1,5 @@
-(function () {
-  var localVariable = "비공개";
-  console.log("IIFE가 실행됐습니다: " + localVariable);
-})();
+// this 사용법
+// 1. 일반 함수에서의 this
+function a() {
+  console.log(this);
+}
