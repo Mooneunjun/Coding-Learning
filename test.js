@@ -5,3 +5,13 @@ function a() {
 }
 
 a(); // window
+
+// 2. 메소드에서의 this
+
+var o = {
+  func: function () {
+    if (o === this) {
+      console.log("o === this");
+    }
+  },
+};
