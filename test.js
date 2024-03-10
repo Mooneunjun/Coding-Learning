@@ -1,19 +1,39 @@
-// this 사용법
-// 1. 일반 함수에서의 this
-function a() {
-  console.log(this);
+class Pereson {
+  constructor(name, age, location) {
+    this.name = name;
+    this.age = age;
+    this.location = location;
+  }
+  getName() {
+    return this.name;
+  }
+  getAge() {
+    return this.age;
+  }
+  getLocation() {
+    return this.location;
+  }
 }
 
-a(); // window
+const me = new Pereson("문은준", 27, "korea");
+const you = new Pereson("김나희", 27, "korea");
 
-// 2. 메소드에서의 this
-
-var o = {
-  func: function () {
-    if (o === this) {
-      console.log("o === this");
-    }
-  },
-};
-
-o.func(); // o === this
+console.log(me.getName() + "와 " + you.getName() + " 연애중!");
+console.log(
+  me.getName() +
+    "의 나이는 " +
+    me.getAge() +
+    "살" +
+    "이고, " +
+    me.getLocation() +
+    "에 삽니다."
+);
+console.log(
+  you.getName() +
+    "의 나이는 " +
+    you.getAge() +
+    "살" +
+    "이고, " +
+    you.getLocation() +
+    "에 삽니다."
+);
