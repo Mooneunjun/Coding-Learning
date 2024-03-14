@@ -1,11 +1,21 @@
-function sum(num1) {
-  return function (num2) {
-    return num1 + num2;
+function CounterApp(initValue) {
+  let countValue = initValue ?? 0;
+
+  return {
+    value: () => countValue,
+    increment: () => countValue++,
+    decrement: () => countValue--,
   };
 }
 
-const sum5 = sum(5);
+let counter = CounterApp(1);
+let counter2 = CounterApp(1);
+console.log(counter.value()); // 1
+counter.increment();
+console.log(counter.value()); // 2
 
-console.log(sum5(95)); // 7
-const sum10 = sum(10);
-console.log(sum10(95)); // 105
+console.log(counter2.value()); // 1
+counter2.decrement();
+console.log(counter2.value()); // 0
+
+console.log(counter.value()); // 2
