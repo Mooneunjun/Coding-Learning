@@ -1,36 +1,28 @@
-function CounterApp(initValue) {
-  let countValue = initValue ?? 0;
+const starbucks = function (coffeeName) {
+  return new Promise((resolve, reject) => {
+    if (coffeeName === "아메리카노") {
+      resolve("아메리카노 나왔습니다.");
+    } else {
+      reject("제가 팔지 않는 메뉴입니다.");
+    }
+  });
+};
 
-  return {
-    value: () => countValue,
-    increment: () => countValue++,
-    decrement: () => countValue--,
-  };
+async function americano(someDrink) {
+  try {
+    const result = await starbucks(someDrink);
+    console.log(result);
+  } catch (error) {
+    console.log(error);
+  } finally {
+    console.log("감사합니다.");
+  }
 }
 
-let counter = CounterApp(1);
-let counter2 = CounterApp(1);
-console.log(counter.value()); // 1
-counter.increment();
-console.log(counter.value()); // 2
+americano("아메리카노");
 
-console.log(counter2.value()); // 1
-counter2.decrement();
-console.log(counter2.value()); // 0
+// 아메리카노 나왔습니다.
+// 감사합니다.
 
-console.log(counter.value()); // 2
-
-// Path: test.js
-
-function CounterApp(initValue) {
-  let countValue = initValue ?? 0;
-
-  return {
-    value: () => countValue,
-    increment: () => countValue++,
-    decrement: () => countValue--,
-  };
-}
-counter = CounterApp(1);
-counter2 = CounterApp(1);
-console.log(counter.value()); // 1
+const items = document.querySelectorAll("li");
+items.forEach((item) => item.addEventListener("click", console.log("안녕")));

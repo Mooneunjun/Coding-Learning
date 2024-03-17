@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+
+  <style>
+    body {
+      margin-top: 200px;
+      display: flex;
+      justify-content: center;
+    }
+
+    p {
+      display: flex;
+      justify-content: center;
+    }
+  </style>
+  <body>
+    <form action="">
+      <input type="text" />
+      <p>text</p>
+    </form>
+  </body>
+
+  <script>
+    let Ptext = document.querySelector("p");
+
+    function debounce(callback, wait) {
+      let timeout;
+      return (...args) => {
+        const context = this;
+        clearTimeout(timeout);
+        timeout = setTimeout(() => callback.apply(context, args), wait);
+      };
+    }
+
+    document.querySelector("input").addEventListener(
+      "keyup",
+      debounce(() => {
+        console.log(document.querySelector("input").value);
+        Ptext.textContent = document.querySelector("input").value;
+      }, 200)
+    );
+  </script>
+</html>
