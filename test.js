@@ -31,3 +31,6 @@ function CounterApp(initValue) {
     decrement: () => countValue--,
   };
 }
+counter = CounterApp(1);
+counter2 = CounterApp(1);
+console.log(counter.value()); // 1
