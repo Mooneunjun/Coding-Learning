@@ -24,6 +24,8 @@
     <form action="">
       <input type="text" />
       <p>text</p>
+
+      <button type="submit">submit</button>
     </form>
   </body>
 
@@ -46,5 +48,10 @@
         Ptext.textContent = document.querySelector("input").value;
       }, 200)
     );
+
+    document.querySelector("button").addEventListener("click", (e) => {
+      e.preventDefault();
+      console.log(document.querySelector("input").value);
+    });
   </script>
 </html>
