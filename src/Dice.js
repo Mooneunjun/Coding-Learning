@@ -24,11 +24,9 @@ const DICE_IMAGES = {
   ],
 };
 
-function Dice({ color = "blue", num = 1 }) {
+function Dice({ color = "blue", num = 1, className = "" }) {
   const src = DICE_IMAGES[color][num - 1];
   const alt = `${color} ${num}`;
-  return <img src={src} alt={alt} />;
+  return <img className={className} src={src} alt={alt} />;
 }
 export default Dice;
-
-console.log("안녕하세요");
