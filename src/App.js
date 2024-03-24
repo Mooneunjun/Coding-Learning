@@ -11,17 +11,49 @@ function random(n) {
 function App() {
   const [myHistory, setMyHistory] = useState([]);
   const [otherHistory, setOtherHistory] = useState([]);
+  const [myWin, setMyWin] = useState("");
+  const [otherWin, setOtherWin] = useState("");
 
   const handleRoolClick = () => {
     const nextMyNum = random(6);
     const nextOtherNum = random(6);
     setMyHistory([...myHistory, nextMyNum]);
     setOtherHistory([...otherHistory, nextOtherNum]);
+
+    const mySum = myHistory.reduce((a, b) => a + b, 0) + nextMyNum;
+    const otherSum = otherHistory.reduce((a, b) => a + b, 0) + nextOtherNum;
+
+    if (mySum > otherSum) {
+      setMyWin("Board-winner");
+      setOtherWin("Board-loser");
+    } else if (mySum < otherSum) {
+      setMyWin("Board-loser");
+      setOtherWin("Board-winner");
+    } else {
+      setMyWin("");
+      setOtherWin("");
+    }
+
+    if (mySum >= 20) {
+      alert("레드팀이 이겼습니다!");
+      setMyHistory([]);
+      setOtherHistory([]);
+      setMyWin("");
+      setOtherWin("");
+    } else if (otherSum >= 20) {
+      alert("블루팀이 이겼습니다!");
+      setMyHistory([]);
+      setOtherHistory([]);
+      setMyWin("");
+      setOtherWin("");
+    }
   };
 
   const handleClearClick = () => {
     setMyHistory([]);
     setOtherHistory([]);
+    setMyWin("");
+    setOtherWin("");
   };
 
   return (
@@ -49,13 +81,13 @@ function App() {
       </div>
       <div className="App-boards">
         <Board
-          className="Board App-board"
+          className={`Board App-board ${myWin}`}
           name="레드팀"
           color="red"
           gameHistory={myHistory}
         />
         <Board
-          className="Board App-board"
+          className={`Board App-board ${otherWin}`}
           name="블루팀"
           color="blue"
           gameHistory={otherHistory}

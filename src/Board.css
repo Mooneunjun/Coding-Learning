@@ -1,9 +1,3 @@
-.Dice {
-  width: 100%;
-  max-width: 100px;
-  max-height: 100px;
-}
-
 .Board {
   display: inline-block;
   padding: 35px 30px;
@@ -24,8 +18,12 @@
 }
 
 .Board .Board-heading {
-  margin: 45px auto 15px;
+  margin: 25px auto 15px;
   color: #888d9d;
   font-weight: 400;
   font-size: 18px;
+}
+
+p:last-child {
+  margin-bottom: 0;
 }

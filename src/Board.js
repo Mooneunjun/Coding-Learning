@@ -9,10 +9,10 @@ function Board({ name, color, gameHistory, className = "" }) {
     <div className={className}>
       <h2 className={BoardHeading}>{name}</h2>
       <Dice className="Dice" color={color} num={num} />
-      <h2 className={BoardHeading}>총점</h2>
-      <p>{sum}</p>
       <h2 className={BoardHeading}>기록</h2>
       <p>{gameHistory.join(", ")}</p>
+      <h2 className={BoardHeading}>총점</h2>
+      <p>{sum}</p>
     </div>
   );
 }

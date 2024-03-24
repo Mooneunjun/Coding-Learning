@@ -20,6 +20,8 @@
 
 .App .App-boards {
   margin-top: 27px;
+  display: flex;
+  justify-content: center;
 }
 
 .App .App-board {

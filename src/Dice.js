@@ -12,6 +12,8 @@ import diceRed04 from "./assets/dice-red-4.svg";
 import diceRed05 from "./assets/dice-red-5.svg";
 import diceRed06 from "./assets/dice-red-6.svg";
 
+import "./Dice.css";
+
 const DICE_IMAGES = {
   red: [diceRed01, diceRed02, diceRed03, diceRed04, diceRed05, diceRed06],
   blue: [
